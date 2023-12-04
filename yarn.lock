@@ -348,7 +348,7 @@ caniuse-lite@^1.0.30001538, caniuse-lite@^1.0.30001565:
   resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001566.tgz#61a8e17caf3752e3e426d4239c549ebbb37fef0d"
   integrity sha512-ggIhCsTxmITBAMmK8yZjEhCO5/47jKXPu6Dha/wuCS4JePVL+3uiDEBuhu2aIoT+bqTOR8L76Ip1ARL9xYsEJA==
 
-chokidar@^3.5.3:
+"chokidar@>=3.0.0 <4.0.0", chokidar@^3.5.3:
   version "3.5.3"
   resolved "https://registry.npmjs.org/chokidar/-/chokidar-3.5.3.tgz#1cf37c8707b932bd1af1ae22c0432e2acd1903bd"
   integrity sha512-Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw==
@@ -611,6 +611,11 @@ human-signals@^4.3.0:
   version "4.3.1"
   resolved "https://registry.npmjs.org/human-signals/-/human-signals-4.3.1.tgz#ab7f811e851fca97ffbd2c1fe9a958964de321b2"
   integrity sha512-nZXjEF2nbo7lIw3mgYjItAfgQXog3OjJogSbKa2CQIIvSGWcKgeJnQlNXip6NglNzYH45nSRiEVimMvYL8DDqQ==
+
+immutable@^4.0.0:
+  version "4.3.4"
+  resolved "https://registry.npmjs.org/immutable/-/immutable-4.3.4.tgz#2e07b33837b4bb7662f288c244d1ced1ef65a78f"
+  integrity sha512-fsXeu4J4i6WNWSikpI88v/PcVflZz+6kMhUfIwc5SY+poQRPnaf5V7qds6SUyUN3cVxEzuCab7QIoLOQ+DQ1wA==
 
 inflight@^1.0.4:
   version "1.0.6"
@@ -1017,6 +1022,15 @@ run-parallel@^1.1.9:
   dependencies:
     queue-microtask "^1.2.2"
 
+sass@^1.69.5:
+  version "1.69.5"
+  resolved "https://registry.npmjs.org/sass/-/sass-1.69.5.tgz#23e18d1c757a35f2e52cc81871060b9ad653dfde"
+  integrity sha512-qg2+UCJibLr2LCVOt3OlPhr/dqVHWOa9XtZf2OjbLs/T4VPSJ00udtgJxH3neXZm+QqX8B+3cU7RaLqp1iVfcQ==
+  dependencies:
+    chokidar ">=3.0.0 <4.0.0"
+    immutable "^4.0.0"
+    source-map-js ">=0.6.2 <2.0.0"
+
 shebang-command@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/shebang-command/-/shebang-command-2.0.0.tgz#ccd0af4f8835fbdc265b82461aaf0c36663f34ea"
@@ -1043,7 +1057,7 @@ sirv@^2.0.3:
     mrmime "^1.0.0"
     totalist "^3.0.0"
 
-source-map-js@^1.0.2:
+"source-map-js@>=0.6.2 <2.0.0", source-map-js@^1.0.2:
   version "1.0.2"
   resolved "https://registry.npmjs.org/source-map-js/-/source-map-js-1.0.2.tgz#adbc361d9c62df380125e7f161f71c826f1e490c"
   integrity sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==

@@ -13,6 +13,11 @@ export default defineConfig({
         tailwindcss,
         autoprefixer,
       ],
-    }
+    },
+    preprocessorOptions: {
+      scss: {
+        additionalData: `$color: #ff7301;`,
+      },
+    },
   }
 });

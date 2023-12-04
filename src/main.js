@@ -10,6 +10,9 @@ import styleObj from './assets/3.module.css';
 // tailwindcss
 import './assets/tw.css';
 
+// preprocessors (sass, less, stylus)
+import './assets/4.scss';
+
 console.log(styles);
 
 const style = document.createElement('style');

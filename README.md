@@ -54,3 +54,21 @@ export default defineConfig({
 
 -Note if an inline config is provided, Vite will not search for other PostCSS config sources.
 
+## 5. vite with preprocessors
+- Vite support preprocessors like sass, less, stylus.
+- There is no need to install Vite-specific plugins for them, but the corresponding pre-processor itself must be installed.
+- Can add additional data to the preprocessor by using `additionalData` option.
+
+```js
+import { defineConfig } from 'vite';
+
+export default defineConfig({
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "./src/styles/variables.scss";`,
+      },
+    },
+  },
+});
+```
