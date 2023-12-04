@@ -1,8 +1,9 @@
 {
-  "name": "vite",
+  "name": "learning-vite",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Learning vite",
+  "main": "main.js",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -14,5 +15,8 @@
   "devDependencies": {
     "vite": "^5.0.5",
     "vite-plugin-inspect": "^0.8.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
   }
 }
