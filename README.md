@@ -26,3 +26,31 @@ export default defineConfig({
   }
 });
 ```
+
+## 4. vite with tailwindcss
+- Install tailwindcss and postcss
+```bash
+npm install -D tailwindcss postcss autoprefixer
+```
+- Create `postcss.config.js` and `tailwind.config.js` in root folder.
+- We can config postcss in `vite.config.js` ref: https://vitejs.dev/config/shared-options.html#css-postcss
+
+```js
+import { defineConfig } from 'vite';
+import tailwindcss from 'tailwindcss';
+import autoprefixer from 'autoprefixer';
+
+export default defineConfig({
+  css: {
+    postcss: {
+      plugins: [
+        tailwindcss,
+        autoprefixer,
+      ],
+    },
+  },
+});
+```
+
+-Note if an inline config is provided, Vite will not search for other PostCSS config sources.
+

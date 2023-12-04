@@ -7,6 +7,9 @@ import styles from './assets/2.css?inline';
 // module style
 import styleObj from './assets/3.module.css';
 
+// tailwindcss
+import './assets/tw.css';
+
 console.log(styles);
 
 const style = document.createElement('style');
