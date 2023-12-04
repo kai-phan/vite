@@ -101,3 +101,9 @@ Raw assets can be imported as strings using the `?raw` suffix:
 ```js
 import img from './img.png?raw';
 ```
+
+## 7. vite public folder
+- Vite will serve the files in public folder as static assets.
+- The public folder is not part of the build output, and will be directly copied to the root of your build directory.
+- The public folder is also useful for assets that need to maintain the same URL across builds, such as `robots.txt` or `favicon.ico`.
+- Vite will serve the files at `/` path, so we can access the files in public folder directly.
