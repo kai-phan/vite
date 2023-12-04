@@ -72,3 +72,32 @@ export default defineConfig({
   },
 });
 ```
+
+## 6. vite static assets
+Built-in support for importing common static asset types, including images, fonts, and media files. Ref: https://vitejs.dev/guide/assets.html#static-asset-handling
+### 6.1. json files
+Vite will transform json files to js module, and the js module will export a object which contains the json data. Add `?url` to the end of the import path to get the url of the json file.
+
+```js
+import data from './data.json';
+// data is the json object
+import data from './data.json?url';
+// data is path of the json file
+```
+### 6.2. images
+Importing a static asset will return the resolved public URL when it is served:
+
+```js
+import imgUrl from 'src/assets/logo.png';
+```
+
+For example, `imgUrl` will be `/src/assets/logo.png` during development, and become `/assets/logo.2d8efhg.png` in the production build.
+Browser will request `http://localhost:5173/src/assets/logo.png?import` to get the script
+and `http://localhost:5173/src/assets/logo.png` to get the image in development mode
+and `${base}/assets/logo.2d8efhg.png` to get the image in production mode.
+
+Raw assets can be imported as strings using the `?raw` suffix:
+
+```js
+import img from './img.png?raw';
+```

@@ -19,5 +19,5 @@ export default defineConfig({
         additionalData: `$color: #ff7301;`,
       },
     },
-  }
+  },
 });
