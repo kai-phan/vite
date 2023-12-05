@@ -107,3 +107,20 @@ import img from './img.png?raw';
 - The public folder is not part of the build output, and will be directly copied to the root of your build directory.
 - The public folder is also useful for assets that need to maintain the same URL across builds, such as `robots.txt` or `favicon.ico`.
 - Vite will serve the files at `/` path, so we can access the files in public folder directly.
+
+## 8. multiple pages
+- Vite support multiple pages by creating multiple entry .html files in root folder. Also can nested the .html files in sub folder. But when navigate to the sub page, the url will be `http://localhost:5173/nested/`.
+- Config the build need to do is to specify multiple .html files as entry points
+
+```js
+export default defineConfig({
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        nested: resolve(__dirname, 'nested/index.html'),
+      },
+    },
+  },
+});
+```
