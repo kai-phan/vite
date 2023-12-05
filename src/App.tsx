@@ -1,9 +1,7 @@
 import { useState } from 'react';
 
-const App = (props) => {
+const App = (props: any) => {
   const [count, setCount] = useState(0);
-
-  const a = import.meta.env.VITE_APP_TITLE;
 
   return (
     <div>
@@ -11,6 +9,6 @@ const App = (props) => {
       <h1>React {count}</h1>
     </div>
   );
-}
+};
 
 export default App;

@@ -172,3 +172,9 @@ export default defineConfig({
 // vite.d.ts
 /// <reference types="vite/client" />
 ```
+
+## 11. vite ESLint
+- Install `eslint`, `eslint-config-prettier`, `eslint-plugin-prettier` for analyzing code and formatting code.
+- Install `@typescript-eslint/eslint-plugin`, `@typescript-eslint/parser` for custom eslint parser and plugin.
+  - Now eslint will use `@typescript-eslint/parser` to parse typescript file and use `@typescript-eslint/eslint-plugin` to analyze typescript code base on the `tsconfig.json`.
+  - Include file that need to be analyzed in `includes` in `tsconfig.json`.
