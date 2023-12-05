@@ -124,3 +124,34 @@ export default defineConfig({
   },
 });
 ```
+
+## 9. vite react and jsx
+- Vite support react and jsx out of the box.JSX transpilation is also handled via esbuild.
+- If not use react, config `jsxFactory` and `jsxFragment` in `vite.config.js` to avoid the warning.
+
+```js
+export default defineConfig({
+  esbuild: {
+    jsxFactory: 'your-jsx-factory',
+    jsxFragment: 'Fragment',
+  },
+});
+```
+
+- You can inject the JSX helpers using jsxInject (which is a Vite-only option) to avoid manual imports:
+```js
+export default defineConfig({
+  esbuild: {
+    jsxInject: `import React from 'react'`,
+  },
+});
+```
+- Add `@vitejs/plugin-react` to support react refresh, use the automatic JSX runtime and custom babel plugins.
+
+```js
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+  plugins: [react()],
+});
+```

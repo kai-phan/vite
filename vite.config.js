@@ -3,10 +3,12 @@ import inspect from 'vite-plugin-inspect';
 import tailwindcss from 'tailwindcss';
 import autoprefixer from 'autoprefixer';
 import path from 'path';
+import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [
     inspect(),
+    react(),
   ],
   css: {
     postcss: {
@@ -28,5 +30,8 @@ export default defineConfig({
         about: path.resolve(__dirname, 'about.html'),
       }
     }
+  },
+  esbuild: {
+    jsxInject: `import React from 'react'`,
   }
 });
