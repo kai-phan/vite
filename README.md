@@ -155,3 +155,20 @@ export default defineConfig({
   plugins: [react()],
 });
 ```
+
+## 10. vite typescript
+- Vite support typescript out of the box. It will use esbuild to transform typescript to js.
+- Vite does not type-check your code by default.
+- Vite config can be a typescript file, so we can use typescript to config vite by create `tsconfig.node.json` in root folder.
+  - Add `tsconfig.node.json` to `references` in `tsconfig.json`
+  - Install `@types/node` to support node types in `vite.config.ts`
+  - Add `esModuleInterop` to `compilerOptions` in `tsconfig.node.json` to support `import` syntax in `vite.config.ts`
+- For client type add `vite.d.ts` in root folder and add `"vite.d.ts"` to `includes` in `tsconfig.json`  or add `vite/client` to `types` in `tsconfig.json`
+  - Asset imports (e.g. importing an .svg file)
+  - Types for the Vite-injected env variables on `import.meta.env`
+  - Types for the Vite-specific `import.meta.hot` API
+
+```ts
+// vite.d.ts
+/// <reference types="vite/client" />
+```

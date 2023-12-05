@@ -1,5 +1,9 @@
-const App = () => {
+import React from 'react';
+
+const App = (props) => {
   const [count, setCount] = React.useState(0);
+
+  const a = import.meta.env.VITE_APP_TITLE;
 
   return (
     <div>
