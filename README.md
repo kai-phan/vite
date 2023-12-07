@@ -178,3 +178,29 @@ export default defineConfig({
 - Install `@typescript-eslint/eslint-plugin`, `@typescript-eslint/parser` for custom eslint parser and plugin.
   - Now eslint will use `@typescript-eslint/parser` to parse typescript file and use `@typescript-eslint/eslint-plugin` to analyze typescript code base on the `tsconfig.json`.
   - Include file that need to be analyzed in `includes` in `tsconfig.json`.
+
+## 12. Path alias
+- Vite does not support path alias out of the box, 
+- If the project use typescript, we can use `baseUrl` and `paths` in `tsconfig.json` to support path alias.
+- Config `alias` in `vite.config.js` to support path alias in js file.
+
+```js
+import { defineConfig } from 'vite';
+
+export default defineConfig({
+  resolve: {
+    alias: {
+      src: path.resolve(__dirname, './src'),
+    },
+  },
+});
+```
+- Alternatively, you can use the `vite-tsconfig-paths` plugin to sync the `paths` in `tsconfig.json` to Vite's alias config.
+
+```js
+import tsconfigPaths from 'vite-tsconfig-paths';
+
+export default defineConfig({
+  plugins: [tsconfigPaths()],
+});
+```

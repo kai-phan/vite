@@ -1,14 +1,7 @@
-import { useState } from 'react';
+import Counter from 'src/components/counter';
 
 const App = (props: any) => {
-  const [count, setCount] = useState(0);
-
-  return (
-    <div>
-      <button onClick={() => setCount(count + 1)}>+</button>
-      <h1>React {count}</h1>
-    </div>
-  );
+  return <Counter />;
 };
 
 export default App;
