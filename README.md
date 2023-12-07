@@ -204,3 +204,21 @@ export default defineConfig({
   plugins: [tsconfigPaths()],
 });
 ```
+
+## 13. Environment Variables
+- Vite expose the environment variables to the browser by injecting the variables into the `import.meta.env` object.
+- Built-in variables
+  - `import.meta.env.DEV`: boolean, `true` in `dev environment` and `false` in `production environment`. (When run `vite` or `NODE_ENV=development vite`)
+  - `import.meta.env.PROD`: boolean, `true` in `production environment` and `false` in `dev environment`. (When run `vite build` or `NODE_ENV=production vite`)
+  - `import.meta.env.BASE_URL`: string, the value of `base` in `vite.config.js`
+  - `import.meta.env.SSR`: boolean, `true` in `server side rendering` and `false` in `client side rendering`.
+  - `import.meta.env.MODE`: string, the value of `mode` in `vite --mode <mode>` or `vite build --mode <mode>`, related with `.env.<mode>` file.
+
+- When running `vite` or `vite build`, the environment variables will be loaded from `.env` file in root folder. 
+- The `.env` file will be loaded in all mode. 
+- The `.env` file can be a `.env.local` file, which will be ignored by git. 
+- The `.env.local` file will be loaded in all mode. 
+- The `.env.local` file can be a `.env.<mode>` file, which will be ignored by git. The `.env.<mode>` file will be loaded in the corresponding mode.
+- For example `vite --mode staging` will load `.env.staging.local` > `.env.staging` > `.env.local` > `.env` file.
+-`mode` for load the `.env` file and `NODE_ENV` for detect our is built or developing. More difference between `mode` and `NODE_ENV` can find here: https://vitejs.dev/guide/env-and-mode.html#node-env-and-modes.
+- Only variables start with `VITE_` will expose to the browser. For example, `VITE_APP_TITLE=My App` will expose `import.meta.env.VITE_APP_TITLE` to the browser.

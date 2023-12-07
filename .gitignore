@@ -1,8 +1,7 @@
 .idea
 dist
 node_modules
-.env
-.env.local
+*.local
 yarn-error.log*
 yarn-debug.log*
 npm-debug.log*
