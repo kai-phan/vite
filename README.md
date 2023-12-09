@@ -222,3 +222,75 @@ export default defineConfig({
 - For example `vite --mode staging` will load `.env.staging.local` > `.env.staging` > `.env.local` > `.env` file.
 -`mode` for load the `.env` file and `NODE_ENV` for detect our is built or developing. More difference between `mode` and `NODE_ENV` can find here: https://vitejs.dev/guide/env-and-mode.html#node-env-and-modes.
 - Only variables start with `VITE_` will expose to the browser. For example, `VITE_APP_TITLE=My App` will expose `import.meta.env.VITE_APP_TITLE` to the browser.
+
+## 14. vite custom dev server with JS API
+- Vite provide a `vite` function to create a dev server.
+
+```js
+// dev-server.ts
+import { createServer } from 'vite';
+
+const server = await createServer({
+  root: __dirname,
+  server: {
+    port: 3000,
+  },
+});
+```
+
+- We can use `ts-node` to run the script directly. But since `vite` using ES module, we need to use `ts-node-esm` to run the script.
+
+```bash
+ts-node-esm scripts/dev-server.ts
+```
+
+- By default, `vite` will search the `vite.config.js` file in root folder. We can specify the config file by passing the `configFile` option.
+
+```js
+const server = await createServer({
+  root: __dirname,
+  configFile: path.resolve(__dirname, '../vite.config.ts'),
+  server: {
+    port: 3000,
+  },
+});
+```
+or set false to disable the config file.
+
+```js
+const server = await createServer({
+  root: __dirname,
+  configFile: false,
+  server: {
+    port: 3000,
+  },
+});
+```
+
+- We can import the config file and pass the config object to `vite` function. But if in `vite.config.ts`, `__dirname` is not available in es module, so we need to do some extra work to get the `__dirname` in es module.
+
+
+```js
+import { createServer } from 'vite';
+
+import config from '../vite.config';
+
+const server = await createServer({
+  ...config,
+  server: {
+    port: 3000,
+  },
+});
+```
+
+```ts
+// vite.config.ts
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+```
+- `import.meta.url` gives you a URL string that represents the location of the current module. This is something like `file:///path/to/current/module.js`.
+- `fileURLToPath(import.meta.url)` converts this URL string to a file path string.
+- `path.dirname(__filename)` gives you the directory name of the file path string. This is something like `/path/to/current`. Equivalent to `__dirname` in CommonJS.

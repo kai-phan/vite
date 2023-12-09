@@ -16,6 +16,7 @@
     "jsx": "react-jsx",
     "noEmit": true,
     "allowUmdGlobalAccess": true,
+    "allowImportingTsExtensions": true,
     "lib": [
       "ESNext",
       "DOM",
@@ -28,10 +29,11 @@
   },
   "include": [
     "src",
-    "vite.d.ts",
+    "vite-env.d.ts",
     "vite.config.ts",
     "postcss.config.js",
-    "tailwind.config.js"
+    "tailwind.config.js",
+    "scripts"
   ],
   "types": [
     "node",
