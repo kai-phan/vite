@@ -294,3 +294,6 @@ const __dirname = path.dirname(__filename);
 - `import.meta.url` gives you a URL string that represents the location of the current module. This is something like `file:///path/to/current/module.js`.
 - `fileURLToPath(import.meta.url)` converts this URL string to a file path string.
 - `path.dirname(__filename)` gives you the directory name of the file path string. This is something like `/path/to/current`. Equivalent to `__dirname` in CommonJS.
+
+## 15. Server Side Rendering
+Ref: https://vitejs.dev/guide/ssr.html

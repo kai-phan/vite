@@ -4,13 +4,12 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>CSR</title>
+    <title>SSR</title>
 </head>
 <body>
-    <h1>Client side rendering</h1>
-    <div id="app"></div>
+    <h1>Server side rendering</h1>
 
-    <script type="module" src="/src/csr.main.tsx"></script>
-    <script>console.log('done')</script>
+    <div id="app"><!--ssr-outlet--></div>
+    <script type="module" src="./src/entry.client.tsx"></script>
 </body>
 </html>
